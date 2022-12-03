@@ -63,15 +63,8 @@ namespace DeWorld
         }
 
         async void Setup_Update(){
-            await Task.Delay(10);
-            File.Move(fullPath + "\\DeWorld.exe", fullPath + "\\DeWorld_old.exe");
-            await Task.Delay(10);
-            DownloadFile(@"https://github.com/Delfi1/DeLauncher/blob/master/bin/Release/net6.0-windows/DeWorld.exe?raw=true", fullPath + "\\DeWorld.exe");
-            DownloadFile(@"https://github.com/Delfi1/DeLauncher/blob/master/bin/Release/net6.0-windows/DeWorld.dll?raw=true", fullPath + "\\DeWorld.exe");
-            DownloadFile(@"https://github.com/Delfi1/DeLauncher/blob/master/bin/Release/net6.0-windows/DeWorld.pdb?raw=true", fullPath + "\\DeWorld.exe");
+            System.Diagnostics.Process.Start(fullPath + "\\Updater.exe");
             await Task.Delay(1000);
-            System.Diagnostics.Process.Start(fullPath + "\\DeWorld.exe");
-            await Task.Delay(5000);
             Environment.Exit(0);
         }
 
@@ -93,6 +86,8 @@ namespace DeWorld
         private void UpdateBtn_Click(object sender, RoutedEventArgs e)
         {
             Setup_Update();
+            UpdateBtn.IsEnabled = false;
+            
         }
 
         async private void CheckBtn_Click(object sender, RoutedEventArgs e)
