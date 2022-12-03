@@ -21,6 +21,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+        <Label x:Name="Version" Content="" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Window>

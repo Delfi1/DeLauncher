@@ -24,7 +24,7 @@ namespace DeWorld
     public partial class Updater : Window
     {
         // Переменные:
-        string version = "0.0.7";
+        string version = "0.0.8";
         string fullPath = Environment.CurrentDirectory;
 
         // Установка файла с сайта:
