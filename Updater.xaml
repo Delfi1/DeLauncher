@@ -1,0 +1,27 @@
+﻿<Window x:Class="DeWorld.Updater"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DeWorld"
+        mc:Ignorable="d"
+        Title="Updater" Height="350" Width="320" ResizeMode="NoResize">
+    <Grid Width="320" Height="350">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF52FFF8" Offset="1"/>
+                <GradientStop Color="#FFD6FFFE" Offset="0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label x:Name="Version" Content="Version: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="VersionServer" Content="Server version: " HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="UpdateBtn" Content="Update" HorizontalAlignment="Center" Margin="0,244,0,0" VerticalAlignment="Top" Height="28" Width="100" FontSize="16" Click="UpdateBtn_Click" IsEnabled="False">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF8DFF9F"/>
+                    <GradientStop Color="#FF3AFF6E" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>
