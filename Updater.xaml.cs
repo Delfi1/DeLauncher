@@ -25,6 +25,7 @@ namespace DeWorld
     {
         // Переменные:
         string version = "0.1.0";
+
         string fullPath = Environment.CurrentDirectory;
 
         // Установка файла с сайта:
