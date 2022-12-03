@@ -75,6 +75,7 @@ namespace DeWorld
             Version.Content = "Version: " + version;
             await Task.Delay(5000);
             Check_update();
+            Version.Content = "Version: " + version;
 
         }
 
