@@ -24,7 +24,7 @@ namespace DeWorld
     public partial class Updater : Window
     {
         // Переменные:
-        string version = "0.0.8";
+        string version = "0.1.0";
         string fullPath = Environment.CurrentDirectory;
 
         // Установка файла с сайта:
@@ -68,13 +68,15 @@ namespace DeWorld
             DownloadFile(@"https://github.com/Delfi1/DeLauncher/blob/master/bin/Release/net6.0-windows/DeWorld.exe?raw=true", fullPath + "\\DeWorld.exe");
             DownloadFile(@"https://github.com/Delfi1/DeLauncher/blob/master/bin/Release/net6.0-windows/DeWorld.dll?raw=true", fullPath + "\\DeWorld.exe");
             DownloadFile(@"https://github.com/Delfi1/DeLauncher/blob/master/bin/Release/net6.0-windows/DeWorld.pdb?raw=true", fullPath + "\\DeWorld.exe");
-            await Task.Delay(100);
+            await Task.Delay(1000);
             System.Diagnostics.Process.Start(fullPath + "\\DeWorld.exe");
+            await Task.Delay(5000);
             Environment.Exit(0);
         }
 
-        void InitializeUpdater(){
+        async void InitializeUpdater(){
             Version.Content = "Version: " + version;
+            await Task.Delay(200);
             Check_update();
             Version.Content = "Version: " + version;
 
