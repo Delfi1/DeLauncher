@@ -24,7 +24,7 @@ namespace DeWorld
     public partial class Updater : Window
     {
         // Переменные:
-        string version = "0.1.1";
+        string version = "0.1.3";
 
         string fullPath = Environment.CurrentDirectory;
 
@@ -64,7 +64,7 @@ namespace DeWorld
 
         async void Setup_Update(){
             System.Diagnostics.Process.Start(fullPath + "\\Updater.exe");
-            await Task.Delay(1000);
+            await Task.Delay(100);
             Environment.Exit(0);
         }
 
