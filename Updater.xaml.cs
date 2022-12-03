@@ -24,7 +24,7 @@ namespace DeWorld
     public partial class Updater : Window
     {
         // Переменные:
-        string version = "0.0.4";
+        string version = "0.0.5";
         string fullPath = Environment.CurrentDirectory;
 
         // Установка файла с сайта:
@@ -88,6 +88,14 @@ namespace DeWorld
         private void UpdateBtn_Click(object sender, RoutedEventArgs e)
         {
             Setup_Update();
+        }
+
+        async private void CheckBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Check_update();
+            CheckBtn.IsEnabled = false;
+            await Task.Delay(1000);
+            CheckBtn.IsEnabled = true;
         }
     }
 }
