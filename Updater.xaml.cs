@@ -24,9 +24,12 @@ namespace DeWorld
     public partial class Updater : Window
     {
         // Переменные:
-        string version = "0.1.3";
+        string version = "0.1.4";
 
         string fullPath = Environment.CurrentDirectory;
+
+        // Новый webClient
+        WebClient client = new WebClient();
 
         // Установка файла с сайта:
         public void DownloadFile(string requestString, string path)
@@ -46,8 +49,6 @@ namespace DeWorld
         // Установка исходного кода с сайта:
         public string DownloadStr(string requestString)
         {
-            // Новый webClient
-            WebClient client = new WebClient();
             Uri requestUri = new Uri(requestString);
             string str = client.DownloadString(requestUri);
             return str;
