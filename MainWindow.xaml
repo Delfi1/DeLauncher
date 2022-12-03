@@ -9,8 +9,8 @@
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FF52FFF8" Offset="1"/>
-                <GradientStop Color="#FFD6FFFE" Offset="0"/>
+                <GradientStop Color="#FF00CBC2" Offset="1"/>
+                <GradientStop Color="#FF52FFA2" Offset="0"/>
             </LinearGradientBrush>
         </Grid.Background>
         <Button x:Name="UpdateBtn" Content="Update" HorizontalAlignment="Center" Margin="0,377,0,0" VerticalAlignment="Top" Height="28" Width="100" FontSize="16" Click="UpdateBtn_Click">
