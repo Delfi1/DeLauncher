@@ -15,21 +15,9 @@
         </Grid.Background>
         <Label x:Name="Version" Content="Version: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="VersionServer" Content="Server version: " HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="UpdateBtn" Content="Update" HorizontalAlignment="Center" Margin="0,244,0,0" VerticalAlignment="Top" Height="28" Width="100" FontSize="16" Click="UpdateBtn_Click" IsEnabled="False">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF8DFF9F"/>
-                    <GradientStop Color="#FF3AFF6E" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
+        <Button x:Name="UpdateBtn" Content="Update" HorizontalAlignment="Center" Margin="0,244,0,0" VerticalAlignment="Top" Height="28" Width="100" FontSize="16" Click="UpdateBtn_Click" IsEnabled="False" BorderBrush="Black" Background="{x:Null}" Foreground="Black">
         </Button>
-        <Button x:Name="CheckBtn" Content="Check" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="45" Click="CheckBtn_Click">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF8DFF9F"/>
-                    <GradientStop Color="#FF3AFF6E" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
+        <Button x:Name="CheckBtn" Content="Check" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="45" Click="CheckBtn_Click" BorderBrush="Black" Background="{x:Null}" Foreground="Black">
         </Button>
     </Grid>
 </Window>
