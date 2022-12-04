@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DeWorld"
         mc:Ignorable="d"
-        Title="Updater" Height="450" Width="420" ResizeMode="NoResize">
-    <Grid Width="420" Height="450">
+        Title="Updater" Height="485" Width="420" ResizeMode="NoResize">
+    <Grid Width="420">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FF00CBC2" Offset="1"/>
@@ -15,13 +15,13 @@
         </Grid.Background>
         <Label x:Name="Version" Content="Version: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="VersionServer" Content="Server version: " HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="UpdateBtn" Content="Update" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Top" Height="28" Width="100" FontSize="16" Click="UpdateBtn_Click" IsEnabled="False" BorderBrush="Black" Background="{x:Null}" Foreground="Black">
+        <Button x:Name="UpdateBtn" Content="Update" HorizontalAlignment="Center" Margin="0,387,0,0" VerticalAlignment="Top" Height="28" Width="100" FontSize="16" Click="UpdateBtn_Click" IsEnabled="False" BorderBrush="Black" Background="{x:Null}" Foreground="Black">
         </Button>
-        <Button x:Name="CheckBtn" Content="Check" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="45" Click="CheckBtn_Click" BorderBrush="Black" Background="{x:Null}" Foreground="Black">
+        <Button x:Name="CheckBtn" Content="Check" HorizontalAlignment="Center" Margin="0,420,0,0" VerticalAlignment="Top" Width="45" Click="CheckBtn_Click" BorderBrush="Black" Background="{x:Null}" Foreground="Black">
         </Button>
 
         <Border x:Name="Border1" BorderBrush="Black" BorderThickness="1" Margin="140,10,20,138" Height="300">
-            <TextBlock x:Name="Log" HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="300" Width="260"/>
+            <TextBlock x:Name="Log" HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="300" Width="254"/>
         </Border>
     </Grid>
 </Window>

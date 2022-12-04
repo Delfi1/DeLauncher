@@ -14,7 +14,8 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Button x:Name="UpdateBtn" Content="Update" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Height="28" Width="100" FontSize="16" Click="UpdateBtn_Click" BorderBrush="Black" Background="{x:Null}" Foreground="Black"/>
-        <Label x:Name="Version" Content="" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom"/>
+        <Label x:Name="Version" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Game_Btn" Content="Game" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Height="28" Width="100" FontSize="16" BorderBrush="Black" Background="{x:Null}" Foreground="Black" Click="Game_Btn_Click"/>
 
     </Grid>
 </Window>

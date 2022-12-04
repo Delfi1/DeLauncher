@@ -63,5 +63,10 @@ namespace DeWorld
             Updater updater = new Updater();
             updater.Show();
         }
+
+        private void Game_Btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
