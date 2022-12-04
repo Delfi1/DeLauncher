@@ -24,7 +24,7 @@ namespace DeWorld
     public partial class Updater : Window
     {
         // Переменные:
-        string version = "0.1.4";
+        string version = "0.1.5";
 
         string fullPath = Environment.CurrentDirectory;
 
@@ -54,10 +54,14 @@ namespace DeWorld
             return str;
         }
 
+        void Load_Log(){
+            Log.Text = DownloadStr(@"https://raw.githubusercontent.com/Delfi1/DeLauncher/master/log.txt");
+        }
+
         //Проверка обновления:
         void Check_update()
         {
-            string get_ver = DownloadStr("https://raw.githubusercontent.com/Delfi1/DeLauncher/master/version.txt");
+            string get_ver = DownloadStr(@"https://raw.githubusercontent.com/Delfi1/DeLauncher/master/version.txt");
             VersionServer.Content = "Server version: " + get_ver;
             if (version.Contains(get_ver)) {UpdateBtn.IsEnabled = false;}
             else{ UpdateBtn.IsEnabled = true; }
@@ -66,12 +70,15 @@ namespace DeWorld
         async void Setup_Update(){
             System.Diagnostics.Process.Start(fullPath + "\\Updater.exe");
             await Task.Delay(100);
+            await Task.Delay(500);
             Environment.Exit(0);
         }
 
         async void InitializeUpdater(){
             Version.Content = "Version: " + version;
             await Task.Delay(200);
+            Load_Log();
+            await Task.Delay(10);
             Check_update();
 
         }
