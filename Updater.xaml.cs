@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,10 +22,11 @@ namespace DeWorld
     /// <summary>
     /// Логика взаимодействия для Updater.xaml
     /// </summary>
+    
     public partial class Updater : Window
     {
         // Переменные:
-        string version = "0.1.9";
+        string version = "0.2.0";
 
         string fullPath = Environment.CurrentDirectory;
 
@@ -82,6 +84,15 @@ namespace DeWorld
             //Check_update();
         }
 
+        void Loading(TextBlock tb){
+            tb.Text = "Loading...";
+        }
+
+        void Loading(Label lb){
+            lb.Content = "Loading...";
+        }
+
+
         public Updater()
         {
             InitializeComponent();
@@ -98,6 +109,9 @@ namespace DeWorld
 
         async private void CheckBtn_Click(object sender, RoutedEventArgs e)
         {
+            Loading(Log);
+            Loading(VersionServer);
+            await Task.Delay(250);
             Check_update();
             Load_Log();
             CheckBtn.IsEnabled = false;

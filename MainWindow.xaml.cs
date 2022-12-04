@@ -46,9 +46,9 @@ namespace DeWorld
         }
 
         void InitializeWorld(){
-            //Updater updater = new Updater();
+            Updater updater = new Updater();
             this.Title = "De:World";
-            //Version.Content = updater.Version.Content;
+            Version.Content = updater.Version.Content;
         }
 
         public MainWindow()
