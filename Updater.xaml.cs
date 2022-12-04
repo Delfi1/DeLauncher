@@ -24,7 +24,7 @@ namespace DeWorld
     public partial class Updater : Window
     {
         // Переменные:
-        string version = "0.1.6";
+        string version = "0.1.7";
 
         string fullPath = Environment.CurrentDirectory;
 
@@ -100,6 +100,7 @@ namespace DeWorld
         async private void CheckBtn_Click(object sender, RoutedEventArgs e)
         {
             Check_update();
+            Load_Log();
             CheckBtn.IsEnabled = false;
             await Task.Delay(1000);
             CheckBtn.IsEnabled = true;
