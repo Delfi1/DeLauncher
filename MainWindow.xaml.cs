@@ -23,6 +23,10 @@ namespace DeWorld
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Переменные:
+        string fullPath = Environment.CurrentDirectory;
+        string gamePath = Environment.CurrentDirectory + "\\Game";
+
         // Установка файла с сайта:
         public void DownloadFile(string requestString, string path){
             HttpClient httpClient = new HttpClient();
@@ -45,7 +49,17 @@ namespace DeWorld
             return str;
         }
 
+        public void SetupUpdate(){
+            DownloadFile
+                (@"https://github.com/Delfi1/Godot_Test/blob/master/Export/Test1.pck?raw=true",
+                gamePath + "\\Test1.pck");
+        }
+
         void InitializeWorld(){
+            if (!Directory.Exists(gamePath)){
+                Directory.CreateDirectory(gamePath);
+            }
+
             Updater updater = new Updater();
             this.Title = "De:World";
             Version.Content = updater.Version.Content;
@@ -64,9 +78,22 @@ namespace DeWorld
             updater.Show();
         }
 
-        private void Game_Btn_Click(object sender, RoutedEventArgs e)
+        private async void Game_Btn_Click(object sender, RoutedEventArgs e)
         {
-
+            Game_Btn.IsEnabled = false;
+            if (!File.Exists(gamePath + "\\Test1.exe")) {
+                DownloadFile
+                    (@"https://github.com/Delfi1/Godot_Test/blob/master/Export/Test1.exe?raw=true",
+                    gamePath + "\\Test1.exe");
+                await Task.Delay(100);
+                SetupUpdate();
+                await Task.Delay(100);
+            }
+            SetupUpdate();
+            await Task.Delay(100);
+            System.Diagnostics.Process.Start(gamePath + "\\Test1.exe");
+            await Task.Delay(1000);
+            Game_Btn.IsEnabled = true;
         }
     }
 }

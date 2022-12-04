@@ -20,8 +20,8 @@
         <Button x:Name="CheckBtn" Content="Check" HorizontalAlignment="Center" Margin="0,420,0,0" VerticalAlignment="Top" Width="45" Click="CheckBtn_Click" BorderBrush="Black" Background="{x:Null}" Foreground="Black">
         </Button>
 
-        <Border x:Name="Border1" BorderBrush="Black" BorderThickness="1" Margin="140,10,20,138" Height="300">
-            <TextBlock x:Name="Log" HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="300" Width="254"/>
+        <Border x:Name="Border1" BorderBrush="Black" BorderThickness="1" Margin="140,21,20,145">
+            <TextBlock x:Name="Log" HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Height="303" Width="254"/>
         </Border>
     </Grid>
 </Window>
