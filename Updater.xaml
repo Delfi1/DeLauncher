@@ -21,7 +21,7 @@
         </Button>
 
         <Border x:Name="Border1" BorderBrush="Black" BorderThickness="1" Margin="140,21,20,145">
-            <TextBlock x:Name="Log" HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Height="303" Width="254"/>
+            <TextBlock x:Name="Log" HorizontalAlignment="Left" Margin="5,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="293" Width="254"/>
         </Border>
     </Grid>
 </Window>
