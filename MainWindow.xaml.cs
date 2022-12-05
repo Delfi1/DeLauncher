@@ -90,11 +90,16 @@ namespace DeWorld
                 SetupUpdate();
                 await Task.Delay(100);
             }
-            SetupUpdate();
-            await Task.Delay(1000);
             System.Diagnostics.Process.Start(gamePath + "\\Test1.exe");
             await Task.Delay(100);
             Game_Btn.IsEnabled = true;
+        }
+
+        private async void Update_GameBtn_Click(object sender, RoutedEventArgs e){
+            Update_GameBtn.IsEnabled = false;
+            SetupUpdate();
+            await Task.Delay(1000);
+            Update_GameBtn.IsEnabled = true;
         }
     }
 }
