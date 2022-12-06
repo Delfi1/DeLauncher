@@ -26,24 +26,25 @@ namespace DeWorld
         //Переменные:
         string fullPath = Environment.CurrentDirectory;
         string gamePath = Environment.CurrentDirectory + "\\Game";
+        WebClient client = new WebClient();
 
         // Установка файла с сайта:
-        public void DownloadFile(string requestString, string path){
+        public async void DownloadFile(string requestString, string path)
+        {
             HttpClient httpClient = new HttpClient();
             var GetTask = httpClient.GetAsync(requestString);
-            GetTask.Wait(1000);
-            if (!GetTask.Result.IsSuccessStatusCode){return;}
-            using (var fs = new FileStream(path, FileMode.CreateNew)){
+            GetTask.Wait(1500);
+            if (!GetTask.Result.IsSuccessStatusCode) { return; }
+            using (var fs = new FileStream(path, FileMode.CreateNew))
+            {
                 var ResponseTask = GetTask.Result.Content.CopyToAsync(fs);
-                ResponseTask.Wait(1000);
+                ResponseTask.Wait(500);
             }
-            System.Threading.Thread.Sleep(200);
-
+            await Task.Delay(1);
         }
         // Установка исходного кода с сайта:
         public string DownloadStr(string requestString){
             // Новый webClient
-            WebClient client = new WebClient();
             Uri requestUri = new Uri(requestString);
             string str = client.DownloadString(requestUri);
             return str;

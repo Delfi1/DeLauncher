@@ -26,44 +26,44 @@ namespace DeWorld
     public partial class Updater : Window
     {
         // Переменные:
-        string version = "0.2.4";
+        string version = "0.2.5";
 
         string fullPath = Environment.CurrentDirectory;
 
         // Новый webClient
         WebClient client = new WebClient();
-
+        Uri UriLog = new Uri("https://raw.githubusercontent.com/Delfi1/DeLauncher/master/log.txt");
+        Uri VersionUri = new Uri("https://raw.githubusercontent.com/Delfi1/DeLauncher/master/version.txt");
         // Установка файла с сайта:
-        public void DownloadFile(string requestString, string path)
+        public async void DownloadFile(string requestString, string path)
         {
             HttpClient httpClient = new HttpClient();
             var GetTask = httpClient.GetAsync(requestString);
-            GetTask.Wait(1000);
+            GetTask.Wait(1500);
             if (!GetTask.Result.IsSuccessStatusCode) { return; }
             using (var fs = new FileStream(path, FileMode.CreateNew))
             {
                 var ResponseTask = GetTask.Result.Content.CopyToAsync(fs);
-                ResponseTask.Wait(1000);
+                ResponseTask.Wait(500);
             }
-            System.Threading.Thread.Sleep(200);
-
+            await Task.Delay(1);
         }
         // Установка исходного кода с сайта:
-        public string DownloadStr(string requestString)
+        public string DownloadStr(Uri requestUri)
         {
-            Uri requestUri = new Uri(requestString);
             string str = client.DownloadString(requestUri);
             return str;
         }
 
         void Load_Log(){
-            Log.Text = DownloadStr(@"https://raw.githubusercontent.com/Delfi1/DeLauncher/master/log.txt");
+            TextBlock1.Text = DownloadStr(UriLog);
+            ReadMore.IsEnabled = true;
         }
 
         //Проверка обновления:
         void Check_update()
         {
-            string get_ver = DownloadStr(@"https://raw.githubusercontent.com/Delfi1/DeLauncher/master/version.txt");
+            string get_ver = DownloadStr(VersionUri);
             VersionServer.Content = "Server version: " + get_ver;
             if (version.Contains(get_ver)) {UpdateBtn.IsEnabled = false;}
             else{ UpdateBtn.IsEnabled = true; }
@@ -72,7 +72,6 @@ namespace DeWorld
         async void Setup_Update(){
             System.Diagnostics.Process.Start(fullPath + "\\Updater.exe");
             await Task.Delay(100);
-            await Task.Delay(500);
             Environment.Exit(0);
         }
 
@@ -109,7 +108,7 @@ namespace DeWorld
 
         async private void CheckBtn_Click(object sender, RoutedEventArgs e)
         {
-            Loading(Log);
+            Loading(TextBlock1);
             Loading(VersionServer);
             await Task.Delay(250);
             Check_update();
@@ -117,6 +116,13 @@ namespace DeWorld
             CheckBtn.IsEnabled = false;
             await Task.Delay(1000);
             CheckBtn.IsEnabled = true;
+        }
+
+        private void ReadMore_Click(object sender, RoutedEventArgs e)
+        {
+            Log log = new Log();
+            log.TextBox1.Text = TextBlock1.Text;
+            log.Show();
         }
     }
 }

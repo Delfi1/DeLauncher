@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DeWorld"
         mc:Ignorable="d"
         Title="Updater" Height="485" Width="420" ResizeMode="NoResize">
-    <Grid Width="420">
+    <Grid Width="421">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FF00CBC2" Offset="1"/>
@@ -21,7 +21,8 @@
         </Button>
 
         <Border x:Name="Border1" BorderBrush="Black" BorderThickness="1" Margin="140,21,20,145">
-            <TextBlock x:Name="Log" HorizontalAlignment="Left" Margin="5,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="293" Width="254"/>
+            <TextBlock x:Name="TextBlock1" HorizontalAlignment="Left" Margin="5,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="293" Width="254"/>
         </Border>
+        <Button x:Name="ReadMore" Content="Read more" Margin="0,0,20,120" Width="60" Click="ReadMore_Click"  BorderBrush="Black" Background="{x:Null}" Foreground="Black" Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" IsEnabled="False"/>
     </Grid>
 </Window>

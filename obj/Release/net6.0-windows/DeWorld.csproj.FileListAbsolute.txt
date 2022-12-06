@@ -21,3 +21,5 @@ C:\Users\Delfi\Desktop\ \Projects\DeWorld\obj\Release\net6.0-windows\refint\DeW
 C:\Users\Delfi\Desktop\ \Projects\DeWorld\obj\Release\net6.0-windows\DeWorld.pdb
 C:\Users\Delfi\Desktop\ \Projects\DeWorld\obj\Release\net6.0-windows\DeWorld.genruntimeconfig.cache
 C:\Users\Delfi\Desktop\ \Projects\DeWorld\obj\Release\net6.0-windows\ref\DeWorld.dll
+C:\Users\Delfi\Desktop\ \Projects\DeWorld\obj\Release\net6.0-windows\Log.g.cs
+C:\Users\Delfi\Desktop\ \Projects\DeWorld\obj\Release\net6.0-windows\Log.baml
