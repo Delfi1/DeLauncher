@@ -27,7 +27,6 @@ namespace DeWorld
         //Переменные:
         string fullPath = Environment.CurrentDirectory;
         string gamePath = Environment.CurrentDirectory + "\\Game";
-        WebClient client = new WebClient();
 
         // Установка файла с сайта:
         public async void DownloadFile(string requestString, string path)
@@ -44,13 +43,7 @@ namespace DeWorld
             await Task.Delay(1);
         }
         // Установка исходного кода с сайта:
-        public string DownloadStr(string requestString){
-            // Новый webClient
-            Uri requestUri = new Uri(requestString);
-            string str = client.DownloadString(requestUri);
-            return str;
-        }
-
+        
         public void SetupUpdate(){
             File.Delete(gamePath + "\\Test1.pck");
             DownloadFile
@@ -59,10 +52,7 @@ namespace DeWorld
         }
 
         void InitializeWorld(){
-            if (!Directory.Exists(gamePath)){
-                Directory.CreateDirectory(gamePath);
-            }
-
+            Directory.CreateDirectory(gamePath);
             Updater updater = new Updater();
             this.Title = "De:World";
             Version.Content = updater.Version.Content;

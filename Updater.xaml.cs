@@ -26,7 +26,7 @@ namespace DeWorld
     public partial class Updater : Window
     {
         // Переменные:
-        string version = "0.2.6";
+        string version = "0.2.7";
         string fullPath = Environment.CurrentDirectory;
         string get_ver = "";
         string get_log = "";
@@ -75,7 +75,7 @@ namespace DeWorld
             if (check) {CheckBtn.IsEnabled = false; }
             Loading(TextBlock1);
             Loading(VersionServer);
-            await Task.Delay(250);
+            await Task.Delay(100);
             Check_update();
             Load_Log();
             CheckBtn.IsEnabled = true;
@@ -98,7 +98,6 @@ namespace DeWorld
             }
         }
 
-
         async void InitializeUpdater(){
             Version.Content = "Version: " + version;
             await Task.Delay(200);
@@ -113,7 +112,6 @@ namespace DeWorld
         void Loading(Label lb){
             lb.Content = "Loading...";
         }
-
 
         public Updater()
         {
