@@ -18,6 +18,7 @@ using System.Windows.Shapes;
 
 namespace DeWorld
 {
+#pragma warning disable SYSLIB0014
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -102,5 +103,6 @@ namespace DeWorld
             await Task.Delay(1000);
             Update_GameBtn.IsEnabled = true;
         }
+
     }
 }
