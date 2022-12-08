@@ -92,6 +92,7 @@ namespace DeWorld
             DownloadFile(GamePckUri, gamePath + "\\Test1.pck");
             Settings.Default.SVer1 = get_ver;
             Settings.Default.Save();
+            GameVersion.Content = "Game version: " + get_ver;
             UpdateGame.IsEnabled = false;
         }
 
