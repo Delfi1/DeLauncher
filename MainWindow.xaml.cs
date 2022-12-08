@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DeWorld.Properties;
 
 namespace DeWorld
 {
@@ -27,6 +28,19 @@ namespace DeWorld
         //Переменные:
         string fullPath = Environment.CurrentDirectory;
         string gamePath = Environment.CurrentDirectory + "\\Game";
+        string GameVer1;
+
+        private void InitializeGame(string name, string version){
+            Launcher launcher = new Launcher();
+            
+            launcher.GameName.Content = "Game name: " + name;
+
+            launcher.Title = name + " | " + version;
+
+            launcher.GameVersion.Content = "Game version: " + version;
+            
+            launcher.Show();
+        }
 
         // Установка файла с сайта:
         public async void DownloadFile(string requestString, string path)
@@ -52,6 +66,7 @@ namespace DeWorld
         }
 
         void InitializeWorld(){
+        
             Directory.CreateDirectory(gamePath);
             Updater updater = new Updater();
             this.Title = "De:World";
@@ -71,28 +86,17 @@ namespace DeWorld
             updater.Show();
         }
 
-        private async void Game_Btn_Click(object sender, RoutedEventArgs e)
+        private void Game_Btn_Click(object sender, RoutedEventArgs e)
         {
-            Game_Btn.IsEnabled = false;
-            if (!File.Exists(gamePath + "\\Test1.exe")) {
-                DownloadFile
-                    (@"https://github.com/Delfi1/Godot_Test/blob/master/Export/Test1.exe?raw=true",
-                    gamePath + "\\Test1.exe");
-                await Task.Delay(100);
-                SetupUpdate();
-                await Task.Delay(100);
-            }
-            System.Diagnostics.Process.Start(gamePath + "\\Test1.exe");
-            await Task.Delay(100);
-            Game_Btn.IsEnabled = true;
+            InitializeGame("Test1", Settings.Default.SVer1);
         }
 
-        private async void Update_GameBtn_Click(object sender, RoutedEventArgs e){
+        /*private async void Update_GameBtn_Click(object sender, RoutedEventArgs e){
             Update_GameBtn.IsEnabled = false;
             SetupUpdate();
             await Task.Delay(1000);
             Update_GameBtn.IsEnabled = true;
-        }
+        }*/
 
     }
 }

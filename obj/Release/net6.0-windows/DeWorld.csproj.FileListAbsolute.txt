@@ -23,3 +23,5 @@ C:\Users\Delfi\Desktop\ \Projects\DeWorld\obj\Release\net6.0-windows\DeWorld.ge
 C:\Users\Delfi\Desktop\ \Projects\DeWorld\obj\Release\net6.0-windows\ref\DeWorld.dll
 C:\Users\Delfi\Desktop\ \Projects\DeWorld\obj\Release\net6.0-windows\Log.g.cs
 C:\Users\Delfi\Desktop\ \Projects\DeWorld\obj\Release\net6.0-windows\Log.baml
+C:\Users\Delfi\Desktop\ \Projects\DeWorld\obj\Release\net6.0-windows\Launcher.g.cs
+C:\Users\Delfi\Desktop\ \Projects\DeWorld\obj\Release\net6.0-windows\Launcher.baml
