@@ -51,6 +51,7 @@ namespace DeWorld
         {
             if (!File.Exists(gamePath + "\\Test1.exe"))
             {
+                StartBtn.IsEnabled = false;
                 DownloadFile(GamePckUri, gamePath + "\\Test1.pck");
                 DownloadFile(GameUri, gamePath + "\\Test1.exe");
             }
@@ -59,6 +60,7 @@ namespace DeWorld
                 await Task.Delay(150);
             }
             CheckBtn.IsEnabled = true;
+            StartBtn.IsEnabled = true;
         }
 
         private void CheckUpdate(){
@@ -112,6 +114,10 @@ namespace DeWorld
 
         private void UpdateGame_Click(object sender, RoutedEventArgs e){
             SetupUpdate();
+        }
+
+        private void StartBtn_Click(object sender, RoutedEventArgs e){
+            System.Diagnostics.Process.Start(gamePath + "\\Test1.exe");
         }
     }
 }

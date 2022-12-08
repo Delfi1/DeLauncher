@@ -28,8 +28,7 @@ namespace DeWorld
         //Переменные:
         string fullPath = Environment.CurrentDirectory;
         string gamePath = Environment.CurrentDirectory + "\\Game";
-        string GameVer1;
-
+        
         private void InitializeGame(string name, string version){
             Launcher launcher = new Launcher();
             
@@ -57,24 +56,15 @@ namespace DeWorld
             await Task.Delay(1);
         }
         // Установка исходного кода с сайта:
-        
-        public void SetupUpdate(){
-            File.Delete(gamePath + "\\Test1.pck");
-            DownloadFile
-                (@"https://github.com/Delfi1/Godot_Test/blob/master/Export/Test1.pck?raw=true",
-                gamePath + "\\Test1.pck");
-        }
 
         void InitializeWorld(){
-        
             Directory.CreateDirectory(gamePath);
             Updater updater = new Updater();
             this.Title = "De:World";
             Version.Content = updater.Version.Content;
         }
 
-        public MainWindow()
-        {
+        public MainWindow(){
             InitializeComponent();
             Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
             InitializeWorld();
@@ -90,13 +80,6 @@ namespace DeWorld
         {
             InitializeGame("Test1", Settings.Default.SVer1);
         }
-
-        /*private async void Update_GameBtn_Click(object sender, RoutedEventArgs e){
-            Update_GameBtn.IsEnabled = false;
-            SetupUpdate();
-            await Task.Delay(1000);
-            Update_GameBtn.IsEnabled = true;
-        }*/
 
     }
 }

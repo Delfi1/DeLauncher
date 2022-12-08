@@ -23,7 +23,7 @@
         </Button>
         <Label x:Name="GameName" Content="Game name:" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="150"/>
         <Label x:Name="GameVersion" Content="Game version:" HorizontalAlignment="Left" Height="25" Margin="10,40,0,0" VerticalAlignment="Top" Width="150"/>
-        <Button x:Name="CheckBtn" Content="Check" HorizontalAlignment="Left" Height="19" Margin="10,0,0,40" VerticalAlignment="Bottom" Width="55" Background="{x:Null}" Click="CheckBtn_Click">
+        <Button x:Name="CheckBtn" Content="Check" HorizontalAlignment="Left" Height="19" Margin="10,70,0,0" VerticalAlignment="Top" Width="55" Background="{x:Null}" Click="CheckBtn_Click">
             <Button.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -32,5 +32,13 @@
             </Button.BorderBrush>
         </Button>
         <Label x:Name="ServerVersion" Content="Server version:" HorizontalAlignment="Left" Height="25" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="150"/>
+        <Button x:Name="StartBtn" Content="Start" Click="StartBtn_Click" HorizontalAlignment="Right" Height="30" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="70" Background="{x:Null}">
+            <Button.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.BorderBrush>
+        </Button>
     </Grid>
 </Window>
