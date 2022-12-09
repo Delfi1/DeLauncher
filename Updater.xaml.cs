@@ -27,7 +27,7 @@ namespace DeWorld
     public partial class Updater : Window
     {
         // Переменные:
-        string version = "0.3.3";
+        string version = "0.3.4";
         string fullPath = Environment.CurrentDirectory;
         string get_ver = "";
         string get_log = "";
@@ -73,6 +73,7 @@ namespace DeWorld
         //Проверка обновления:
         void Check_update()
         {
+            CheckBtn.IsEnabled = false;
             VersionServer.Content = "Server version: " + get_ver;
             if (version.Contains(get_ver)) {UpdateBtn.IsEnabled = false;}
             else{ UpdateBtn.IsEnabled = true; }
@@ -80,10 +81,9 @@ namespace DeWorld
 
         async void CheckBtn_func(bool check) {
             if (check) {CheckBtn.IsEnabled = false; }
-            Loading(TextBlock1);
-            Loading(VersionServer);
-            await Task.Delay(100);
+            await Task.Delay(150);
             Check_update();
+            await Task.Delay(150);
             Load_Log();
             CheckBtn.IsEnabled = true;
         }
@@ -111,14 +111,6 @@ namespace DeWorld
             await Task.Delay(200);
             InUpdater();
             Check();
-        }
-
-        void Loading(TextBlock tb){
-            ReadMore.IsEnabled = false;
-            tb.Text = "Loading...";
-        }
-        void Loading(Label lb){
-            lb.Content = "Loading...";
         }
 
         public Updater()
