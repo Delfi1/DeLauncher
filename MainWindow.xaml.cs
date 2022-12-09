@@ -55,13 +55,29 @@ namespace DeWorld
             }
             await Task.Delay(1);
         }
-        // Установка исходного кода с сайта:
+
+        string SaveVer(string name){
+            if (File.Exists(fullPath + "\\save" + name + ".txt")){
+                StreamReader sr = new StreamReader(fullPath + "\\save" + name + ".txt");
+                string get_ver = sr.ReadToEnd();
+                return get_ver;
+                sr.Close();
+                File.Delete(fullPath + "\\save" + name + ".txt");
+            }
+            return "";
+        }
 
         void InitializeWorld(){
             Directory.CreateDirectory(gamePath);
             Updater updater = new Updater();
             this.Title = "De:World";
             Version.Content = updater.Version.Content;
+
+            if (SaveVer("Test1").Length >= 2){
+                Settings.Default.SVer1 = SaveVer("Test1");
+                Settings.Default.Save();
+            }
+
         }
 
         public MainWindow(){

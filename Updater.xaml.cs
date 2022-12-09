@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DeWorld.Properties;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace DeWorld
     public partial class Updater : Window
     {
         // Переменные:
-        string version = "0.3.2";
+        string version = "0.3.3";
         string fullPath = Environment.CurrentDirectory;
         string get_ver = "";
         string get_log = "";
@@ -48,8 +49,14 @@ namespace DeWorld
             }
             await Task.Delay(1);
         }
-        // Установка исходного кода с сайта:
-        
+
+        void LoadVer(string save, string load)
+        {
+            StreamWriter sw = new StreamWriter(fullPath + "\\save" + save + ".txt");
+            sw.WriteLine(load);
+            sw.Close();
+        }
+
         void Load_Log(){
             TextBlock1.Text = get_log;
             ReadMore.IsEnabled = true;
@@ -82,6 +89,7 @@ namespace DeWorld
         }
 
         async void Setup_Update(){
+            LoadVer("Test1", Settings.Default.SVer1);
             System.Diagnostics.Process.Start(fullPath + "\\Updater.exe");
             await Task.Delay(100);
             Environment.Exit(0);

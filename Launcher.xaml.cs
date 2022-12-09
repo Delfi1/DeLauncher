@@ -74,7 +74,6 @@ namespace DeWorld
             lb.Content = "Loading...";
         }
 
-
         async void InUpdater()
         {
             while (true)
