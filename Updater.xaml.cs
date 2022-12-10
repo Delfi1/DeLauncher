@@ -27,7 +27,7 @@ namespace DeWorld
     public partial class Updater : Window
     {
         // Переменные:
-        string version = "0.3.4";
+        string version = "0.3.5";
         string fullPath = Environment.CurrentDirectory;
         string get_ver = "";
         string get_log = "";
@@ -68,6 +68,7 @@ namespace DeWorld
                 await Task.Delay(100);
             }
             CheckBtn.IsEnabled = true;
+            CheckBtn_func(false);
         }
 
         //Проверка обновления:

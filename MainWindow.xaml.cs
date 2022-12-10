@@ -60,9 +60,9 @@ namespace DeWorld
             if (File.Exists(fullPath + "\\save" + name + ".txt")){
                 StreamReader sr = new StreamReader(fullPath + "\\save" + name + ".txt");
                 string get_ver = sr.ReadToEnd();
-                return get_ver;
                 sr.Close();
                 File.Delete(fullPath + "\\save" + name + ".txt");
+                return get_ver;
             }
             return "";
         }
