@@ -29,9 +29,9 @@ namespace DeWorld
         string gamePath = Environment.CurrentDirectory + "\\Game";
         string ver = Settings.Default.SVer1;
         string get_ver = "";
-        Uri GameVerUri = new Uri("https://raw.githubusercontent.com/Delfi1/DeLauncher/master/game1.txt");
-        Uri GameUri = new Uri("https://github.com/Delfi1/Godot_Test/blob/master/Export/Test1.exe?raw=true");
-        Uri GamePckUri = new Uri("https://github.com/Delfi1/Godot_Test/blob/master/Export/Test1.pck?raw=true");
+        Uri GameVerUri = new Uri("https://raw.githubusercontent.com/Delfi1/Test2/Develop/Export/game.txt");
+        Uri GameUri = new Uri("https://github.com/Delfi1/Test2/blob/Develop/Export/Test2.exe?raw=true");
+        Uri GamePckUri = new Uri("https://github.com/Delfi1/Test2/blob/Develop/Export/Test2.pck?raw=true");
 
         public async void DownloadFile(Uri requestUri, string path)
         {
@@ -49,12 +49,6 @@ namespace DeWorld
 
         async void Check()
         {
-            if (!File.Exists(gamePath + "\\Test1.exe"))
-            {
-                StartBtn.IsEnabled = false;
-                DownloadFile(GamePckUri, gamePath + "\\Test1.pck");
-                DownloadFile(GameUri, gamePath + "\\Test1.exe");
-            }
             while (get_ver.Length < 2){
                 CheckBtn.IsEnabled = false;
                 await Task.Delay(150);
@@ -64,7 +58,8 @@ namespace DeWorld
         }
 
         private void CheckUpdate(){
-            if (get_ver.Contains(ver)){ UpdateGame.IsEnabled = false; }
+            if (get_ver.Contains(ver)){ UpdateGame.IsEnabled = false;
+                ReloadGame.IsEnabled = true; }
             else { UpdateGame.IsEnabled = true; }
             ServerVersion.Content = "Server version: " + get_ver;
         }
@@ -86,9 +81,20 @@ namespace DeWorld
             }
         }
 
-        private void SetupUpdate(){
-            File.Delete(gamePath + "\\Test1.pck");
-            DownloadFile(GamePckUri, gamePath + "\\Test1.pck");
+        private void SetupUpdate(bool delete){
+            if (!File.Exists(gamePath + "\\Test2.exe"))
+            {
+                StartBtn.IsEnabled = false;
+                DownloadFile(GamePckUri, gamePath + "\\Test2.pck");
+                DownloadFile(GameUri, gamePath + "\\Test2.exe");
+            }
+            else{
+                if (delete){
+                    File.Delete(gamePath + "\\Test2.exe");
+                }
+            }
+            File.Delete(gamePath + "\\Test2.pck");
+            DownloadFile(GamePckUri, gamePath + "\\Test2.pck");
             Settings.Default.SVer1 = get_ver;
             Settings.Default.Save();
             GameVersion.Content = "Game version: " + get_ver;
@@ -96,6 +102,7 @@ namespace DeWorld
         }
 
         void InitializeLauncher(){
+            ReloadGame.IsEnabled = false;
             UpdateGame.IsEnabled = false;
             InUpdater();
             Check();
@@ -113,11 +120,15 @@ namespace DeWorld
         }
 
         private void UpdateGame_Click(object sender, RoutedEventArgs e){
-            SetupUpdate();
+            SetupUpdate(false);
         }
 
         private void StartBtn_Click(object sender, RoutedEventArgs e){
-            System.Diagnostics.Process.Start(gamePath + "\\Test1.exe");
+            System.Diagnostics.Process.Start(gamePath + "\\Test2.exe");
+        }
+
+        private void ReloadGame_Click(object sender, RoutedEventArgs e){
+            SetupUpdate(true);
         }
     }
 }
